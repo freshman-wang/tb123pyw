@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+				box-sizing: border-box;
+			}
+			
+			div {
+				display: block;
+			}
+			
+			body {
+				font-size: 14px;
+				line-height: 1.5;
+				color: #333;
+				font-family: "Microsoft Yahei";
+			}
+			
+			label {
+				cursor: default;
+			}
+			
+			input,
+			textarea,
+			select,
+			button {
+				text-rendering: auto;
+				color: initial;
+				letter-spacing: normal;
+				word-spacing: normal;
+				text-transform: none;
+				text-indent: 0px;
+				text-shadow: none;
+				text-align: start;
+				font: 13.3333px Arial;
+			}
+			
+			li {
+				list-style: none;
+				display: inline-block;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.line {
+				width: 100%;
+				height: 100px;
+				background-color: #fff;
+				border-bottom: 1px solid #703987;
+				margin-bottom: 13px;
+				box-shadow: 0 1px 0 #fff;
+				margin: 0px auto;
+				box-sizing: border-box;
+			}
+			
+			.header {
+				width: 1190px;
+				height: 100px;
+				margin: 0px auto;
+				position: relative;
+				box-sizing: border-box;
+			}
+			
+			.img1 {
+				float: left;
+				height: 97px;
+				width: 296px;
+				background: url(img/aa.png) center left no-repeat;
+				box-sizing: border-box;
+				position: absolute;
+				left: 100px;
+				top: 0px;
+			}
+			
+			.login {
+				float: right;
+				width: 415px;
+				height: 100px;
+				background: url(img/top-bg.png) center no-repeat;
+			}
+			
+			.login1 {
+				float: right;
+				width: 90px;
+				height: 36px;
+				font-size: 16px;
+				line-height: 36px;
+				text-align: center;
+				color: white;
+				background-color: #B7AEDA;
+				margin-top: 30px;
+			}
+			
+			.mid {
+				width: 100%;
+				height: 1050px;
+				background-color: #F2F2F2;
+				padding-top: 10px;
+			}
+			
+			.body {
+				width: 1190px;
+				height: 1040px;
+				margin: 0px auto;
+				box-sizing: border-box;
+			}
+			
+			.in {
+				height: 710px;
+				width: 880px;
+				padding-left: 19px;
+				padding-right: 19px;
+				box-sizing: border-box;
+				display: inline-block;
+				border: 1px solid #E6E6E6;
+				background: white url(http://images.zastatic.com/zhenai3/zhenai2015/img/reg/bg.png) no-repeat left bottom;
+			}
+			
+			.left {
+				padding-left: 25px;
+				font-size: 18px;
+				font-weight: 400;
+				color: #333;
+				background: url(http://images.zastatic.com/zhenai3/zhenai2015/img/public/icon/small/icon-4-a.png) no-repeat left center;
+			}
+			
+			.title-bar {
+				height: 46px;
+				line-height: 46px;
+				margin-bottom: 20px;
+				border-bottom: 1px solid #E6E6E6;
+			}
+			
+			.col-form {
+				margin: 0 15px;
+				height: 36px;
+				line-height: 36px;
+				margin-bottom: 14px;
+			}
+			
+			.col-form label {
+				font-weight: 700;
+				width: 100px;
+				text-align: right;
+				display: inline-block;
+				float: left;
+				margin-right: 10px;
+			}
+			
+			.height-ruler {
+				cursor: pointer;
+				width: 445px;
+				height: 36px;
+				background-image: url(http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/height-ruler.png);
+				float: left;
+				position: relative;
+				z-index: 1;
+			}
+			
+			.height-ruler .ruler {
+				height: 9px;
+				overflow: hidden;
+				width: 425px;
+				position: absolute;
+				background-image: url(http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/ruler.png);
+				left: 10px;
+				top: 11px;
+			}
+			
+			.height-ruler .cur-height {
+				display: block;
+				width: 8px;
+				height: 20px;
+				overflow: hidden;
+				background-image: url(http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/cur-height.png);
+				position: absolute;
+				cursor: pointer;
+			}
+			
+			.height-ruler .cur-value {
+				height: 16px;
+				width: 70px;
+				line-height: 16px;
+				position: absolute;
+				top: -16px;
+				text-align: center;
+			}
+			
+			.height-ruler .cur-value span {
+				background: #000;
+				font-size: 12px;
+				color: #fff;
+				padding: 0 3px;
+				border-radius: 2px;
+			}
+			
+			.height-ruler .cur-value i {
+				overflow: hidden;
+				display: block;
+				width: 7px;
+				height: 4px;
+				background-image: url(http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/corner.png);
+				left: 50%;
+				margin-left: -4px;
+				bottom: -4px;
+				position: absolute;
+			}
+			
+			.check-form {
+				display: none;
+				float: left;
+				font-size: 12px;
+				margin-left: 15px;
+				background: #DFDFDF;
+				height: 26px;
+				line-height: 24px;
+				border: 1px solid #CECECE;
+				border-radius: 2px;
+				margin-top: 4px;
+				position: relative;
+			}
+			
+			.check-form i {
+				display: inline-block;
+				width: 16px;
+				height: 24px;
+				float: left;
+				background-image: url(http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/check-icon.png);
+				margin-left: 5px;
+			}
+			
+			.check-form b,
+			.check-form em {
+				display: block;
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				border-style: dashed solid dashed dashed;
+				border-width: 5px;
+				position: absolute;
+				top: 7px;
+			}
+			
+			.check-form b {
+				left: -10px;
+				border-color: transparent #CECECE transparent transparent;
+			}
+			
+			.check-form em {
+				left: -9px;
+				border-color: transparent #DFDFDF transparent transparent;
+			}
+			
+			.check-form span {
+				padding: 0 10px 0 5px;
+			}
+			
+			dl {
+				display: block;
+			}
+			
+			.za-selector {
+				position: relative;
+				z-index: 9;
+				width: 106px;
+				height: 36px;
+				font-size: 14px;
+				float: left;
+				background-color: #fff;
+				background-repeat: repeat-x;
+			}
+			
+			.za-selector dt {
+				display: block;
+				border: 1px solid #C9C9C9;
+				height: 34px;
+				line-height: 34px;
+				padding-left: 5px;
+				background: url(http://images.zastatic.com/zhenai3/zhenai2015/img/reg/arrow.gif) no-repeat right 50%;
+			}
+			
+			.za-selector dd a {
+				display: block;
+				text-decoration: none;
+				padding-left: 5px;
+				height: 22px;
+				line-height: 22px;
+				border-left: 1px solid #C9C9C9;
+				border-right: 1px solid #C9C9C9;
+			}
+			
+			.za-selector dd {
+				border-bottom: 1px solid #C9C9C9;
+				box-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+				width: 100%;
+				background: #fff;
+				position: absolute;
+				left: 0;
+				top: 34px;
+				display: none;
+			}
+			
+			.za-selector:hover dd {
+				display: block;
+			}
+			
+			.za-selector dd a:hover {
+				background-color: #00A5DB;
+				color: white;
+			}
+			
+			.check-form-ok b,
+			.check-form-ok em,
+			.check-form-ok span {
+				display: none;
+			}
+			
+			.check-form-ok i {
+				background-position: 0 100%;
+			}
+			
+			.check-form-ok {
+				background: #fff;
+				border: 1px solid #fff;
+			}
+			
+			form div:nth-of-type(2) {
+				position: relative;
+				z-index: 999;
+			}
+			
+			form div:nth-of-type(3) {
+				position: relative;
+				z-index: 99;
+			}
+			
+			.tody-reg-stutas {
+				margin: 0 15px 20px;
+				padding-left: 110px;
+				color: #333;
+				font-size: 18px;
+				background-image: url(http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/border.png);
+				background-repeat: repeat-x;
+				padding-top: 25px;
+				background-position: 0 5px;
+				font-weight: 700;
+			}
+			
+			.tody-reg-stutas span {
+				color: #ff5b5b;
+			}
+			
+			input,
+			textarea,
+			select,
+			button {
+				text-rendering: auto;
+				color: initial;
+				letter-spacing: normal;
+				word-spacing: normal;
+				text-transform: none;
+				text-indent: 0px;
+				text-shadow: none;
+				display: inline-block;
+				text-align: start;
+				margin: 0em;
+				font: 13.3333px Arial;
+			}
+			
+			.col-form .input-text {
+				height: 34px;
+				border: 1px solid #C9C9C9;
+				background-repeat: repeat-x;
+				float: left;
+				padding-left: 5px;
+				font-size: 14px;
+				width: 223px;
+				font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+				line-height: 34px;
+			}
+			
+			.agreement {
+				padding-top: 10px;
+				padding-left: 141px;
+				font-size: 12px;
+				color: #666;
+				font-family: sans-serif;
+			}
+			
+			.agreement label {
+				float: left;
+				text-indent: -15px;
+			}
+			
+			.agreement input {
+				height: 12px;
+				width: 12px;
+				position: relative;
+				margin-right: 2px;
+				vertical-align: -2px;
+				vertical-align: 1px\9;
+			}
+			
+			.agreement a {
+				color: #007BC2;
+				text-decoration: underline;
+			}
+			
+			.reg-btn {
+				width: 260px;
+				height: 50px;
+				background-color: #ff6060;
+				cursor: pointer;
+				border: 0;
+				margin-top: 35px;
+				margin-left: 125px;
+				color: #fff;
+				font-size: 20px;
+				border-radius: 1px;
+				font-family: 'Microsoft Yahei';
+				border-radius: 1px;
+				transition: background-color .3s;
+				align-items: flex-start;
+				text-align: center;
+			}
+			
+			.reg-btn:hover {
+				background-color: #eb5858;
+			}
+			
+			.clearfix:after {
+				content: ".";
+				display: block;
+				clear: both;
+				visibility: hidden;
+				line-height: 0;
+				height: 0;
+			}
+			
+			.sibe-bar-about dl {
+				padding: 15px 8% 0 10%;
+			}
+			
+			.col-right {
+				width: 290px;
+				float: right;
+				position: relative;
+				border: 1px solid #E6E6E6;
+			}
+			
+			.sibe-bar {
+				padding-bottom: 15px;
+				border: 1px solid #e6e6e6;
+				background-color: #fff;
+				border-radius: 3px;
+				font-size: 12px;
+				overflow: hidden;
+			}
+			
+			.sibe-bar .sibe-bar-about {
+				padding-bottom: 25px;
+			}
+			
+			.sibe-bar-about dl {
+				padding: 15px 8% 0 10%;
+			}
+			
+			.sibe-bar-about dt {
+				font-size: 18px;
+				font-weight: 700;
+				color: #636363;
+			}
+			
+			.sibe-bar-about dl strong {
+				color: #b4bfe4;
+				font-size: 28px;
+				line-height: 36px;
+				font-family: arial;
+			}
+			
+			.sibe-bar-about dd {
+				font-size: 14px;
+				color: #535353;
+			}
+			
+			.more-logins {
+				margin: 0 18px;
+				border-top: 1px dashed #dfdfdf;
+				padding-left: 7px;
+				padding-top: 15px;
+			}
+			
+			.more-logins h2 {
+				font-size: 14px;
+				padding-bottom: 15px;
+			}
+			
+			.more-logins ul {
+				display: inline-block;
+			}
+			
+			.more-logins li {
+				width: 46%;
+				float: left;
+				height: 18px;
+				line-height: 18px;
+				margin-bottom: 8px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="line">
+			<div class="header">
+				<a href="index.html"><img src="img/b.png" width="100px" height="100px" /></a>
+				<p class="img1"></p>
+				<div class="login">
+					<a href="index.html" class="login1">登录</a>
+				</div>
+			</div>
+		</div>
+		<div class="mid">
+			<div class="body">
+				<div class="in">
+					<div class="title-bar">
+						<h2 class="left">编辑征婚资料</h2>
+					</div>
+					<form action="login.html" method="get">
+						<!--  隐藏域 -->
+						<input type="hidden" name="baseInfo.sex" value="0">
+
+						<input type="hidden" name="dateForm.year" value="1995">
+						<input type="hidden" name="dateForm.month" value="6">
+						<input type="hidden" name="dateForm.day" value="20">
+						<input type="hidden" name="areaForm.workProvince" value="10118000">
+						<input type="hidden" name="areaForm.workCity" value="10118076">
+
+						<input type="hidden" name="baseInfo.marriage" value="1">
+						<input type="hidden" name="step" value="3">
+						<!-- 生日 {-->
+
+						<!-- 我的身高 {-->
+						<div class="col-form">
+							<label>我的身高：</label>
+							<div class="height-ruler" id="HeightRuler">
+								<div class="ruler" style="width: 263.4px;"></div>
+								<div class="cur-height" style="left: 273.4px; top: 6px;"></div>
+								<div class="cur-value" style="left: 243.4px;">
+									<span>184cm</span>
+									<i></i>
+								</div>
+								<input type="hidden" name="baseInfo.height" value="184">
+							</div>
+
+							<div class="check-form" style="display: block;">
+								<i></i><span>注册后不可改</span><b></b><em></em>
+							</div>
+						</div>
+						<!-- 我的身高 {-->
+						<!-- 我的学历 }-->
+						<div class="col-form">
+							<label>我的学历：</label>
+							<dl class="za-selector" id="MyEducation" style="width: 162px;">
+								<dt class="arrow">大学本科</dt>
+								<dd>
+									<input data-check="#MyEducationCheck" id="MyEducationInput" type="hidden" name="baseInfo.education" value="5">
+									<a data-value="3">高中及以下</a>
+									<a data-value="2">中专</a>
+									<a data-value="4">大专</a>
+									<a data-value="5">大学本科</a>
+									<a data-value="6">硕士</a>
+									<a data-value="7">博士</a>
+								</dd>
+							</dl>
+							<div id="MyEducationCheck" class="check-form check-form-ok" data-tip="此项注册后不可修改，请慎重填写" data-worning="请选择&quot;学历&quot;" style="display: block;">
+								<i></i><span>此项注册后不可修改，请慎重填写</span><b></b><em></em>
+							</div>
+						</div>
+						<!-- 我的学历 }-->
+						<!-- 我的月薪 {-->
+						<div class="col-form">
+							<label>我的月薪：</label>
+							<dl class="za-selector" id="MySalary" style="width: 162px;">
+								<dt class="arrow">请选择</dt>
+								<dd>
+									<input id="MySalaryInput" type="hidden" name="baseInfo.salary" value="-1">
+									<a>请选择</a>
+									<a>3000元以下</a>
+									<a>3001-5000元</a>
+									<a>5001-8000元</a>
+									<a>8001-12000元</a>
+									<a>12001-20000元</a>
+									<a>20001-50000元</a>
+									<a>50000元以上</a>
+								</dd>
+							</dl>
+							<div class="check-form" style="display: none;">
+								<i></i><span>请选择"月收入"</span><b></b><em></em>
+							</div>
+						</div>
+						<!-- 我的月薪 }-->
+						<div class="tody-reg-stutas">
+							今天已有 <span id="CurRegNum">36288</span> 位新会员加入程序员之光
+						</div>
+						<script type="text/javascript">
+							(function() {
+								var D = new Date(),
+									h = D.getHours(),
+									m = D.getMinutes();
+								$('#CurRegNum').html((h * 60 + m) * 27);
+							})();
+						</script>
+						<!-- 我的手机号 {-->
+						<div class="col-form">
+							<label>我的手机号：</label>
+							<input autocomplete="off" class="input-text" placeholder="请输入您的手机号" type="text" style="border: 1px solid rgb(201, 201, 201);">
+							<div id="MyPhoneCheck" class="check-form" data-tip="可直接使用手机号登录，号码绝不会被公开" data-worning="手机号码长度错误，请确认" style="display: block;">
+								<i></i><span>手机号不能为空。</span><b></b><em></em>
+							</div>
+						</div>
+						<!-- 我的手机号 {-->
+
+						<div class="col-form">
+							<label>创建密码：</label>
+							<input autocomplete="off" class="input-text" placeholder="请输入密码" type="password">
+							<span class="checkPswBox danger" id="checkPswBox" style="display: none;"><span class="item"></span></span>
+							<div id="MyPasswordCheck" class="check-form" data-tip="请输入密码" data-worning="密码格式错误！">
+								<i></i><span></span><b></b><em></em>
+							</div>
+						</div>
+
+						<div class="col-form">
+							<label>确认密码：</label>
+							<input autocomplete="off" class="input-text" placeholder="请再输入一次密码" type="password">
+							<div id="CheckMyPSWCheck" class="check-form" data-tip="再次确认密码。" data-worning="确认密码错误！">
+								<i></i><span></span><b></b><em></em>
+							</div>
+						</div>
+
+						<div class="agreement clearfix">
+							<label><input checked="true" type="checkbox" id="AgreementInput">已阅读和同意珍爱网的 <a href="http://register.zhenai.com/register/serverrulenew.jsp" target="_blank">服务条款</a> 和 <a href="http://register.zhenai.com/register/intimacy.jsp" target="_blank">信息保护政策</a><br>并同意将本人提供之信息由珍爱网提供线上/线下服务使用</label>
+							<div id="AgreementCheck" class="check-form">
+								<i></i><span>请阅读和同意左侧的条款</span><b></b><em></em>
+							</div>
+						</div>
+
+						<input class="reg-btn" type="submit" value="免费注册 开启寻爱之旅">
+					</form>
+
+				</div>
+
+				<div class="col-right">
+					<div class="sibe-bar">
+						<div class="sibe-bar-about">
+							<img src="http://i2.zastatic.com/zhenai3/zhenai2015/img/reg/bg2.png" alt="">
+							<dl>
+								<dt><strong>1</strong>亿</dt>
+								<dd>截止2016年10月，程序员之光会员注册量已经突破1亿</dd>
+							</dl>
+							<dl>
+								<dt><strong>12</strong>年</dt>
+								<dd>珍爱网成立于2005年，专注婚恋12年，经验丰富</dd>
+							</dl>
+							<dl>
+								<dt><strong>3000</strong>位</dt>
+								<dd>拥有庞大的专业红娘团队，3000位受过婚恋心理培训的红娘</dd>
+							</dl>
+							<dl>
+								<dt><strong>NO.1</strong></dt>
+								<dd>蝉联工信部中国婚恋行业第一品牌，获2013央视年度品牌</dd>
+							</dl>
+							<dl>
+								<dt><strong>47</strong>家</dt>
+								<dd>在全国一/二线城市拥有47家专业的线下服务门店</dd>
+							</dl>
+						</div>
+						<div class="more-logins">
+							<h2>其他登录方式：</h2>
+							<ul>
+								<li>
+									<a href="http://connect.zhenai.com/qq/login.x" target="_blank"><img src="http://i1.zastatic.com/zhenai3/zhenai2015/img/reg/ico_18x18_qq.png">QQ登录</a>
+								</li>
+								<li>
+									<a href="http://static.zhenai.com/weibo/login.jsps" target="_blank"><img src="http://i3.zastatic.com/zhenai3/zhenai2015/img/reg/ico_18x18_sina.png">微博登录</a>
+								</li>
+								<li>
+									<a href="http://static.zhenai.com/baidu/preLogin.jsps" target="_blank"><img src="http://i4.zastatic.com/zhenai3/zhenai2015/img/reg/ico_18x18_baidu.png">百度</a>
+								</li>
+								<li>
+									<a href="http://profile.zhenai.com/sns/zfbLogin.jsps" target="_blank"><img src="http://i0.zastatic.com/zhenai3/zhenai2015/img/reg/ico_18x18_alipay.png">支付宝登录
+									</a>
+								</li>
+							</ul>
+						</div>
+	</body>
+
+</html>
